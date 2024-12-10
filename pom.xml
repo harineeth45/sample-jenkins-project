@@ -67,7 +67,7 @@
       <configuration>
         <rules>
           <mavenVersion>
-            <version>[3.5.0,)</version>  <!-- Example rule for Maven version -->
+            <version>[3.8.7,)</version>  <!-- Example rule for Maven version -->
           </mavenVersion>
         </rules>
       </configuration>
