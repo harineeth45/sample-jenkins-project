@@ -48,10 +48,31 @@
 
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.0</version> <!-- Ensure version is defined -->
+        <version>3.0</version>
         <configuration>
           <!-- Empty configuration as we've moved reportPlugins to <reporting> -->
         </configuration>
+      </plugin>
+
+      <!-- Add the maven-enforcer-plugin inside the existing <build> section -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <mavenVersion>
+                  <version>[3.0.3,)</version>
+                </mavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
 
@@ -179,32 +200,4 @@
     <url>http://github.com/jleetutorial/maven-project</url>
   </scm>
 
-  <!-- Replace the <prerequisites> section with the maven-enforcer-plugin -->
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.0.0-M3</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <mavenVersion>
-                  <version>[3.0.3,)</version>
-                </mavenVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>
-
-
-
